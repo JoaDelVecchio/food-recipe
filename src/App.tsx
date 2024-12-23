@@ -1,11 +1,9 @@
-import Navbar from "./components/Navbar";
 import { Route, Routes } from "react-router-dom";
+import Header from "./components/Header";
 import Home from "./pages/home/Home";
 import Details from "./pages/details/Details";
 import Favorites from "./pages/favorites/Favorites";
-
 import "./App.css";
-import SearchBar from "./components/SearchBar";
 import { useState } from "react";
 
 function App() {
@@ -13,19 +11,19 @@ function App() {
 
   return (
     <div className="w-full flex flex-col gap-5">
-      <header className="flex flex-col md:flex-row shadow-md shadow-emerald-500 bg-green-100 rounded-md justify-between items-center p-8 w-full">
-        <h1 className="text-xl font-bold">Food Recipe</h1>
-        <SearchBar
-          searchedItem={searchedItem}
-          setSearchedItem={setSearchedItem}
-        />
-        <Navbar />
-      </header>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/recipe-item/:id" element={<Details />} />
-        <Route path="/favorites" element={<Favorites />} />
-      </Routes>
+      <Header searchedItem={searchedItem} setSearchedItem={setSearchedItem} />
+
+      <main className="flex-grow px-4">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/recipe-item/:id" element={<Details />} />
+          <Route path="/favorites" element={<Favorites />} />
+        </Routes>
+      </main>
+
+      <footer className="bg-gray-800 text-white text-center py-4">
+        <p>&copy; 2024 Food Recipe. All Rights Reserved.</p>
+      </footer>
     </div>
   );
 }

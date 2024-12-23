@@ -11,16 +11,15 @@ const SearchBar = ({
   const handleSearchedItemChanges = (
     e: React.ChangeEvent<HTMLInputElement>
   ) => {
-    e.preventDefault();
     setSearchedItem(e.target.value);
   };
 
   return (
     <form>
       <input
-        className="rounded-md p-2 bg-emerald-300 shadow-sm shadow-emerald-700 "
+        className="rounded-md p-3 w-64 bg-white text-gray-800 placeholder-gray-400 shadow-md focus:ring-2 focus:ring-emerald-500 outline-none transition"
         type="text"
-        placeholder="Enter items..."
+        placeholder="Search recipes..."
         value={searchedItem}
         onChange={(e) => handleSearchedItemChanges(e)}
       />
