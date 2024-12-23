@@ -6,13 +6,19 @@ import Favorites from "./pages/favorites/Favorites";
 
 import "./App.css";
 import SearchBar from "./components/SearchBar";
+import { useState } from "react";
 
 function App() {
+  const [searchedItem, setSearchedItem] = useState<string>("");
+
   return (
     <div className="w-full flex flex-col gap-5">
-      <header className="flex shadow-md shadow-emerald-500 bg-green-100 rounded-md justify-between p-8 w-full">
+      <header className="flex flex-col md:flex-row shadow-md shadow-emerald-500 bg-green-100 rounded-md justify-between items-center p-8 w-full">
         <h1 className="text-xl font-bold">Food Recipe</h1>
-        <SearchBar />
+        <SearchBar
+          searchedItem={searchedItem}
+          setSearchedItem={setSearchedItem}
+        />
         <Navbar />
       </header>
       <Routes>
