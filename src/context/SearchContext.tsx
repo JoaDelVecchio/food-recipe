@@ -9,6 +9,7 @@ import {
 
 // Define the Recipe type
 export interface Recipe {
+  title: ReactNode;
   id: string;
   publisher: string;
   image_url: string;
